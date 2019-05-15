@@ -26,3 +26,23 @@ print("regression line: " + "y = " + str(round(m,2)) + "x + " + str(round(b,2)) 
 # linear regression prediction model
 x_prediction = 18
 y_prediction = (m*x_prediction)+b
+print("predicted coordinate: (" + str(round(x_prediction,2)) + ", " + str(round(y_prediction,2)) + ")")
+
+# find the r squared value
+# y values of regression line
+regression_line = [(m*x)+b for x in x_values]
+
+
+def squared_error(ys_orig, ys_line):
+    return sum((ys_line - ys_orig) * (ys_line - ys_orig)) # helper function to return the sum of the distances between the two y values squared
+
+
+def r_squared_value(ys_orig,ys_line):
+    squared_error_regr = squared_error(ys_orig, ys_line) # squared error of regression line
+    y_mean_line = [mean(ys_orig) for y in ys_orig] # horizontal line (mean of y values)
+    squared_error_y_mean = squared_error(ys_orig, y_mean_line) # squared error of the y mean line
+    return 1 - (squared_error_regr/squared_error_y_mean)
+
+
+r_squared = r_squared_value(y_values, regression_line)
+print("r^2 value: " + str(r_squared))
