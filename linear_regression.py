@@ -22,3 +22,7 @@ m, b = best_fit_line(x_values, y_values)
 
 # establish regression line
 print("regression line: " + "y = " + str(round(m,2)) + "x + " + str(round(b,2)) )
+
+# linear regression prediction model
+x_prediction = 18
+y_prediction = (m*x_prediction)+b
