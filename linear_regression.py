@@ -46,3 +46,11 @@ def r_squared_value(ys_orig,ys_line):
 
 r_squared = r_squared_value(y_values, regression_line)
 print("r^2 value: " + str(r_squared))
+
+# plot the values on a graph
+plt.title('Linear Regression')
+plt.scatter(x_values, y_values,color='#5b9dff',label='data')
+plt.scatter(x_prediction, y_prediction, color='#fc003f', label="predicted")
+plt.plot(x_values, regression_line, color='000000', label='regression line')
+plt.legend(loc=4)
+plt.savefig("graph.png")
